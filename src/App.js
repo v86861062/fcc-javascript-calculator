@@ -23,7 +23,7 @@ class App extends Component {
   }
 
   handleClickNumber = (event) => {
-    let n = event.target.value
+    let n = event.target.dataset.number
     this.setState(prevState => ({
       display: isStartZero.test(prevState.display) ?
                   n :prevState.display + n,
@@ -42,7 +42,7 @@ class App extends Component {
   }
 
   handleClickOperator = (event) => {
-    let o = event.target.value
+    let o = event.target.dataset.operator
     this.setState(prevState => ({
       display: o,
       formula: endsWithOperator.test(prevState.formula) ?
@@ -81,31 +81,30 @@ class App extends Component {
   render() {
     const { display, formula} = this.state
     return (
-      <div className="test">
-          <button id="equals" onClick={this.handleClickEquals}>=</button>
+      <div className="calculator">
+        <div id="equals" onClick={this.handleClickEquals}>=</div>
 
-          <button id="zero"  value='0' onClick={this.handleClickNumber}>0</button>
-          <button id="one"   value='1' onClick={this.handleClickNumber}>1</button>
-          <button id="two"   value='2' onClick={this.handleClickNumber}>2</button>
-          <button id="three" value='3' onClick={this.handleClickNumber}>3</button>
-          <button id="four"  value='4' onClick={this.handleClickNumber}>4</button>
-          <button id="five"  value='5'  onClick={this.handleClickNumber}>5</button>
-          <button id="six"   value='6'  onClick={this.handleClickNumber}>6</button>
-          <button id="seven" value='7'  onClick={this.handleClickNumber}>7</button>
-          <button id="eight" value='8'  onClick={this.handleClickNumber}>8</button>
-          <button id="nine"  value='9'  onClick={this.handleClickNumber}>9</button>
-          
-          <button id="add"      value='+' onClick={this.handleClickOperator}>+</button>
-          <button id="subtract" value='-' onClick={this.handleClickOperator}>-</button>
-          <button id="multiply" value='x' onClick={this.handleClickOperator}>*</button>
-          <button id="divide"   value='/' onClick={this.handleClickOperator}>/</button>
+        <div id="zero"  data-number={'0'} onClick={this.handleClickNumber}>0</div>
+        <div id="one"   data-number={'1'} onClick={this.handleClickNumber}>1</div>
+        <div id="two"   data-number={'2'} onClick={this.handleClickNumber}>2</div>
+        <div id="three" data-number={'3'} onClick={this.handleClickNumber}>3</div>
+        <div id="four"  data-number={'4'} onClick={this.handleClickNumber}>4</div>
+        <div id="five"  data-number={'5'} onClick={this.handleClickNumber}>5</div>
+        <div id="six"   data-number={'6'} onClick={this.handleClickNumber}>6</div>
+        <div id="seven" data-number={'7'} onClick={this.handleClickNumber}>7</div>
+        <div id="eight" data-number={'8'} onClick={this.handleClickNumber}>8</div>
+        <div id="nine"  data-number={'9'} onClick={this.handleClickNumber}>9</div>
+        
+        <div id="subtract" data-operator={'-'} onClick={this.handleClickOperator}>-</div>
+        <div id="add"      data-operator={'+'} onClick={this.handleClickOperator}>+</div>
+        <div id="multiply" data-operator={'x'} onClick={this.handleClickOperator}>*</div>
+        <div id="divide"   data-operator={'/'} onClick={this.handleClickOperator}>/</div>
 
-          <button id="decimal" onClick={this.handleClickDecimal}>.</button>
-          <button id="clear" onClick={this.handleClickClear}>AC</button>
-          
-          <h1>{formula}</h1>
-          <p id="display">{display}</p>
-          
+        <div id="decimal" onClick={this.handleClickDecimal}>.</div>
+        <div id="clear" onClick={this.handleClickClear}>AC</div>
+        
+        <h1 id="formula">{formula}</h1>
+        <h1 id="display">{display}</h1>
       </div>
     )
   }

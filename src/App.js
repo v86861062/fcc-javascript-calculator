@@ -97,7 +97,7 @@ class App extends Component {
         
         <div id="subtract" data-operator={'-'} onClick={this.handleClickOperator}>-</div>
         <div id="add"      data-operator={'+'} onClick={this.handleClickOperator}>+</div>
-        <div id="multiply" data-operator={'x'} onClick={this.handleClickOperator}>*</div>
+        <div id="multiply" data-operator={'x'} onClick={this.handleClickOperator}>x</div>
         <div id="divide"   data-operator={'/'} onClick={this.handleClickOperator}>/</div>
 
         <div id="decimal" onClick={this.handleClickDecimal}>.</div>

@@ -1,31 +1,71 @@
-.calculator {
-  margin: 10%;
-  background-color: green;
+$border-color: hsl(60, 10%, 20%);
+$operator-color: hsl(30, 100%, 40%);
+
+.calculator {  
+  position: absolute;  
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 600px;
+  height: 490px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(7, 1fr);
+  
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+               monospace;  
+  border: 3px solid $border-color;
+  box-shadow: 5px 5px 10px gray;
+}
+
+.calculator h1 {
+  margin: 0;
+  padding: 0 5px;
+  border: 2px solid $border-color;
+
+  /* for center align text :( */
+  display: flex;      
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.calculator div {
+  font-size: 40px;
+  text-align: center;
+  border: 1px solid $border-color;
+  background-color: green;  
+
+  /* for center align text :( */
+  display: flex;      
+  align-items: center;
+  justify-content: center;
 }
 
 #formula {
   grid-area: 1 / 1 / span 1 / span 4;
-  background-color: red;
+  background-color: hsl(0, 0%, 75%);
 }
 #display {
   grid-area: 2 / 1 / span 1 / span 4;
-  background-color: darkblue;
+  background-color: hsl(0, 0%, 60%);
 }
 
 #add {
   grid-area: 3 / 1 / span 1 / span 1;
+  background-color: $operator-color;
 }
 #subtract {
   grid-area: 3 / 2 / span 1 / span 1;
+  background-color: $operator-color;
 }
 #multiply {
   grid-area: 3 / 3 / span 1 / span 1;
+  background-color: $operator-color;
 }
 #divide {
   grid-area: 3 / 4 / span 1 / span 1;
+  background-color: $operator-color;
 }
 
 #seven {
@@ -67,20 +107,10 @@
 
 #clear {
   grid-area: 4 / 4 / span 2 / span 1;
+  background-color: hsl(0, 100%, 40%);
 }
 #equals {
   grid-area: 6 / 4 / span 2 / span 1;
+  background-color: hsl(240, 100%, 35%);
 }
 
-
-
-
-
-#equals {
-  
-  background-color: aqua;
-}
-
-#clear {
-  
-}

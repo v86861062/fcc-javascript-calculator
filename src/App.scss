@@ -1,3 +1,86 @@
-.test {
-  margin: 30%;
+.calculator {
+  margin: 10%;
+  background-color: green;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+}
+
+#formula {
+  grid-area: 1 / 1 / span 1 / span 4;
+  background-color: red;
+}
+#display {
+  grid-area: 2 / 1 / span 1 / span 4;
+  background-color: darkblue;
+}
+
+#add {
+  grid-area: 3 / 1 / span 1 / span 1;
+}
+#subtract {
+  grid-area: 3 / 2 / span 1 / span 1;
+}
+#multiply {
+  grid-area: 3 / 3 / span 1 / span 1;
+}
+#divide {
+  grid-area: 3 / 4 / span 1 / span 1;
+}
+
+#seven {
+  grid-area: 4 / 1 / span 1 / span 1;
+}
+#eight {
+  grid-area: 4 / 2 / span 1 / span 1;
+}
+#nine {
+  grid-area: 4 / 3 / span 1 / span 1;
+}
+
+#four {
+  grid-area: 5 / 1 / span 1 / span 1;
+}
+#five {
+  grid-area: 5 / 2 / span 1 / span 1;
+}
+#six {
+  grid-area: 5 / 3 / span 1 / span 1;
+}
+
+#three {
+  grid-area: 6 / 1 / span 1 / span 1;
+}
+#two {
+  grid-area: 6 / 2 / span 1 / span 1;
+}
+#one {
+  grid-area: 6 / 3 / span 1 / span 1;
+}
+
+#zero {
+  grid-area: 7 / 1 / span 1 / span 2;
+}
+#decimal {
+  grid-area: 7 / 3 / span 1 / span 1;
+}
+
+#clear {
+  grid-area: 4 / 4 / span 2 / span 1;
+}
+#equals {
+  grid-area: 6 / 4 / span 2 / span 1;
+}
+
+
+
+
+
+#equals {
+  
+  background-color: aqua;
+}
+
+#clear {
+  
 }

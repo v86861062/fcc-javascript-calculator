@@ -22,13 +22,12 @@ class App extends Component {
     }
   }
 
-  handleClickNumber = (event) => {
-    let n = event.target.dataset.number
+  handleClickNumber = (number) => {
     this.setState(prevState => ({
       display: isStartZero.test(prevState.display) ?
-                  n :prevState.display + n,
+        number : prevState.display + number,
       formula: isStartZero.test(prevState.formula) ?
-                n :prevState.formula + n
+        number : prevState.formula + number
     }))
   }
 
@@ -41,13 +40,12 @@ class App extends Component {
     }))
   }
 
-  handleClickOperator = (event) => {
-    let o = event.target.dataset.operator
+  handleClickOperator = (operator) => {
     this.setState(prevState => ({
-      display: o,
+      display: operator,
       formula: endsWithOperator.test(prevState.formula) ?
-                prevState.formula.replace(endsWithOperator, o) : 
-                prevState.formula + o
+                prevState.formula.replace(endsWithOperator, operator) : 
+                prevState.formula + operator
     }))
   }
 
@@ -65,7 +63,7 @@ class App extends Component {
       })
     } 
     catch (e) {
-      /* 這是開發時方便找出不合理的 formula */
+      /* 方便開發時方便找出不合理的 formula */
       console.log(e)
       console.log("formula: " + f)
     }
@@ -84,21 +82,21 @@ class App extends Component {
       <div className="calculator">
         <div id="equals" onClick={this.handleClickEquals}>=</div>
 
-        <div id="zero"  data-number={'0'} onClick={this.handleClickNumber}>0</div>
-        <div id="one"   data-number={'1'} onClick={this.handleClickNumber}>1</div>
-        <div id="two"   data-number={'2'} onClick={this.handleClickNumber}>2</div>
-        <div id="three" data-number={'3'} onClick={this.handleClickNumber}>3</div>
-        <div id="four"  data-number={'4'} onClick={this.handleClickNumber}>4</div>
-        <div id="five"  data-number={'5'} onClick={this.handleClickNumber}>5</div>
-        <div id="six"   data-number={'6'} onClick={this.handleClickNumber}>6</div>
-        <div id="seven" data-number={'7'} onClick={this.handleClickNumber}>7</div>
-        <div id="eight" data-number={'8'} onClick={this.handleClickNumber}>8</div>
-        <div id="nine"  data-number={'9'} onClick={this.handleClickNumber}>9</div>
+        <div id="zero"  onClick={() => this.handleClickNumber('0')}>0</div>
+        <div id="one"   onClick={() => this.handleClickNumber('1')}>1</div>
+        <div id="two"   onClick={() => this.handleClickNumber('2')}>2</div>
+        <div id="three" onClick={() => this.handleClickNumber('3')}>3</div>
+        <div id="four"  onClick={() => this.handleClickNumber('4')}>4</div>
+        <div id="five"  onClick={() => this.handleClickNumber('5')}>5</div>
+        <div id="six"   onClick={() => this.handleClickNumber('6')}>6</div>
+        <div id="seven" onClick={() => this.handleClickNumber('7')}>7</div>
+        <div id="eight" onClick={() => this.handleClickNumber('8')}>8</div>
+        <div id="nine"  onClick={() => this.handleClickNumber('9')}>9</div>
         
-        <div id="subtract" data-operator={'-'} onClick={this.handleClickOperator}>-</div>
-        <div id="add"      data-operator={'+'} onClick={this.handleClickOperator}>+</div>
-        <div id="multiply" data-operator={'x'} onClick={this.handleClickOperator}>x</div>
-        <div id="divide"   data-operator={'/'} onClick={this.handleClickOperator}>/</div>
+        <div id="subtract" onClick={() => this.handleClickOperator('-')}>-</div>
+        <div id="multiply" onClick={() => this.handleClickOperator('x')}>x</div>
+        <div id="divide"   onClick={() => this.handleClickOperator('/')}>/</div>
+        <div id="add"      onClick={() => this.handleClickOperator('+')}>+</div>
 
         <div id="decimal" onClick={this.handleClickDecimal}>.</div>
         <div id="clear" onClick={this.handleClickClear}>AC</div>

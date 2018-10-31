@@ -1,5 +1,9 @@
-$border-color: hsl(60, 10%, 20%);
-$operator-color: hsl(30, 100%, 40%);
+$border-color: #112F41;
+$operator-color: #f2b134;
+$number-color: #4FB99F;
+$clear-color: #ED553B;
+$equals-color: #068587;
+
 
 .calculator {  
   position: absolute;  
@@ -34,7 +38,7 @@ $operator-color: hsl(30, 100%, 40%);
   font-size: 40px;
   text-align: center;
   border: 1px solid $border-color;
-  background-color: green;  
+  background-color: $number-color;  
 
   /* for center align text :( */
   display: flex;      
@@ -107,10 +111,10 @@ $operator-color: hsl(30, 100%, 40%);
 
 #clear {
   grid-area: 4 / 4 / span 2 / span 1;
-  background-color: hsl(0, 100%, 40%);
+  background-color: $clear-color;
 }
 #equals {
   grid-area: 6 / 4 / span 2 / span 1;
-  background-color: hsl(240, 100%, 35%);
+  background-color: $equals-color;
 }
 
